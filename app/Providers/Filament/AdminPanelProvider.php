@@ -47,8 +47,8 @@ class AdminPanelProvider extends PanelProvider
                 'gray' => Color::Stone,
             ])
             ->navigationGroups([
-                NavigationGroup::make('Peran dan Izin')->icon(
-                    'heroicon-o-lock-closed',
+                NavigationGroup::make('Kelola Produk')->icon(
+                    'heroicon-o-rectangle-stack',
                 ),
                 NavigationGroup::make('Kelola Berita')->icon(
                     'heroicon-o-newspaper',
