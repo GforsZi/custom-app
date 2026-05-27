@@ -16,6 +16,7 @@ return new class extends Migration {
             $table->string('slug');
             $table->text('description');
             $table->string('price');
+            $table->unsignedBigInteger('service_id');
             $table->enum('condition', [
                 'tersedia',
                 'terjual',
@@ -25,6 +26,7 @@ return new class extends Migration {
             $table->json('more_information')->nullable();
             $table->timestamps();
             $table->softDeletes();
+            $table->foreign('service_id')->references('id')->on('services')->onDelete('cascade');
         });
     }
 

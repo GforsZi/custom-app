@@ -20,4 +20,24 @@ class EditProduct extends EditRecord
             RestoreAction::make(),
         ];
     }
+    protected function afterSave(): void
+    {
+        $this->syncImages();
+    }
+    protected function syncImages(): void
+    {
+        $newPaths = array_values($this->data['images_upload'] ?? []);
+
+        $existingPaths = $this->record->images->pluck('image')->toArray();
+
+        $toDelete = array_diff($existingPaths, $newPaths);
+        $this->record->images()
+            ->whereIn('image', $toDelete)
+            ->delete();
+
+        $toAdd = array_diff($newPaths, $existingPaths);
+        foreach ($toAdd as $path) {
+            $this->record->images()->create(['image' => $path]);
+        }
+    }
 }

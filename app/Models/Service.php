@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Service extends Model
 {
     use SoftDeletes;
+    protected $guarded = [];
+    protected $casts = [
+        'content' => 'array',
+    ];
 }
