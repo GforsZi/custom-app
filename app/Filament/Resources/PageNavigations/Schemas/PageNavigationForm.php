@@ -75,17 +75,11 @@ class PageNavigationForm
                                         $get('data.source') === 'page',
                                 ),
 
+
                             TextInput::make('data.url')
-                                ->label('URL')
-                                ->url()
-                                ->visible(
-                                    fn(Get $get) => $get('type') === 'link' &&
-                                        $get('data.source') === 'custom',
-                                )
-                                ->required(
-                                    fn(Get $get) => $get('type') === 'link' &&
-                                        $get('data.source') === 'custom',
-                                ),
+                                ->label('URL Kustom')
+                                ->visible(fn(Get $get) => $get('type') === 'link' && $get('data.source') === 'custom')
+                                ->required(fn(Get $get) => $get('type') === 'link' && $get('data.source') === 'custom'),
                         ])
                         ->visible(fn(Get $get) => $get('type') === 'link'),
 

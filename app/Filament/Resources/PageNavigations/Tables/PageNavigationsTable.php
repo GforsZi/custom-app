@@ -16,9 +16,6 @@ class PageNavigationsTable
             ->columns([
                 TextColumn::make('label')
                     ->searchable(),
-                TextColumn::make('position')
-                    ->numeric()
-                    ->sortable(),
                 TextColumn::make('type')
                     ->badge(),
                 TextColumn::make('created_at')
@@ -36,6 +33,8 @@ class PageNavigationsTable
             ->recordActions([
                 EditAction::make(),
             ])
+            ->defaultSort('position')
+            ->reorderable('position')
             ->toolbarActions([
                 BulkActionGroup::make([
                     DeleteBulkAction::make(),

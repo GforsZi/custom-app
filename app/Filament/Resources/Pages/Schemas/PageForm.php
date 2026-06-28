@@ -2,7 +2,6 @@
 
 namespace App\Filament\Resources\Pages\Schemas;
 
-use App\Models\Service;
 use Filament\Actions\Action;
 use Filament\Forms\Components\Builder;
 use Filament\Forms\Components\Builder\Block;
@@ -13,7 +12,6 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
-use Filament\Schemas\Components\Fieldset;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Group;
 use Filament\Schemas\Components\Section;
@@ -29,8 +27,7 @@ class PageForm
         return $schema->schema([
             Group::make([
                 Section::make('Konten Halaman')
-                    ->description('Kelola blok konten utama halaman.')
-                    ->icon('heroicon-o-document-text')
+                    ->icon('heroicon-o-puzzle-piece')
                     ->schema([
                         Builder::make('content')
                             ->label('Blok Konten')
@@ -187,9 +184,7 @@ class PageForm
                                                 ->itemLabel(
                                                     fn(
                                                         array $state,
-                                                    ): ?string => $state[
-                                                        'heading_line1'
-                                                    ] ?? 'Slide baru',
+                                                    ): ?string => $state['heading_line1'] ?? 'Slide baru',
                                                 )
                                                 ->columnSpanFull()
                                                 ->columns(1),
@@ -235,7 +230,7 @@ class PageForm
                                                         ->label('Icon Lucide')
                                                         ->options([
                                                             'map-pin' =>
-                                                                'Map Pin',
+                                                            'Map Pin',
                                                             'phone' => 'Phone',
                                                             'mail' => 'Mail',
                                                             'clock' => 'Clock',
@@ -334,11 +329,11 @@ class PageForm
                                                         ->label('Icon')
                                                         ->options([
                                                             'building-2' =>
-                                                                'Building',
+                                                            'Building',
                                                             'message-circle' =>
-                                                                'Message Circle',
+                                                            'Message Circle',
                                                             'droplets' =>
-                                                                'Droplets',
+                                                            'Droplets',
                                                             'sun' => 'Sun',
                                                             'clock' => 'Clock',
                                                             'car' => 'Car',
@@ -680,7 +675,6 @@ class PageForm
 
                 Group::make([
                     Section::make('Identitas Halaman')
-                        ->description('Data utama halaman dan tautan akses.')
                         ->icon('heroicon-o-link')
                         ->schema([
                             TextInput::make('title')
@@ -715,9 +709,6 @@ class PageForm
                         ]),
 
                     Section::make('Meta SEO')
-                        ->description(
-                            'Optimasi mesin pencari untuk halaman ini.',
-                        )
                         ->icon('heroicon-o-globe-alt')
                         ->schema([
                             Textarea::make('meta_seo.description')

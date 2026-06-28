@@ -23,7 +23,7 @@ class ServiceForm
     {
         return $schema->components([
             Group::make([
-                Section::make([
+                Section::make('Konten Layanan')->icon('heroicon-o-puzzle-piece')->schema([
                     RichEditor::make('description')
                         ->required()
                         ->columnSpanFull(),
@@ -37,9 +37,9 @@ class ServiceForm
                                         ->label('Pilih Style Hero')
                                         ->options([
                                             'guide' =>
-                                                'Style – (full-width split)',
+                                            'Style – (full-width split)',
                                             'rental' =>
-                                                'Style – (slider specs)',
+                                            'Style – (slider specs)',
                                             'carwash' => 'Style – (centered)',
                                         ])
                                         ->required()
@@ -389,7 +389,7 @@ class ServiceForm
                                                     'package' => 'Package',
                                                     'briefcase' => 'Briefcase',
                                                     'message-circle' =>
-                                                        'Message Circle',
+                                                    'Message Circle',
                                                 ])
                                                 ->required()
                                                 ->searchable(),
@@ -488,7 +488,7 @@ class ServiceForm
                                                 ->label('Icon')
                                                 ->options([
                                                     'shield-check' =>
-                                                        'Shield Check',
+                                                    'Shield Check',
                                                     'languages' => 'Languages',
                                                     'clock' => 'Clock',
                                                     'star' => 'Star',
@@ -706,7 +706,7 @@ class ServiceForm
                         ->reorderableWithButtons(),
                 ])->columnSpan(2),
                 Group::make([
-                    Section::make([
+                    Section::make('Informasi Layanan')->icon('heroicon-o-document-text')->schema([
                         TextInput::make('name')->required(),
                         ColorPicker::make('code_color'),
                         FileUpload::make('image')
