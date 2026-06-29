@@ -41,6 +41,7 @@ class UserForm
                             ->label('Password')
                             ->password()
                             ->revealable()
+                            ->nullable()
                             ->required(
                                 fn(string $context) => $context === 'create',
                             )
@@ -59,7 +60,9 @@ class UserForm
                             ->same('password')
                             ->required(
                                 fn(string $context) => $context === 'create',
-                            ),
+                            )
+                            ->nullable()
+                            ->dehydrated(false),
                     ]),
                 ]),
 
@@ -69,7 +72,7 @@ class UserForm
                     Grid::make(2)->schema([
                         Toggle::make('is_active')
                             ->label('Akun Aktif')
-                            ->default(true),
+                            ->dehydrateStateUsing(fn ($state): bool => (bool) $state),
 
                         DateTimePicker::make('email_verified_at')
                             ->label('Email Terverifikasi')
@@ -83,9 +86,9 @@ class UserForm
                     Select::make('roles')
                         ->label('Roles')
                         ->relationship('roles', 'name')
+                        ->multiple()
                         ->preload()
-                        ->searchable()
-                        ->required(),
+                        ->searchable(),
                 ]),
         ]);
     }

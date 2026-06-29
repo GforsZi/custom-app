@@ -7,7 +7,6 @@ use BackedEnum;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\RichEditor\RichContentRenderer;
-use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Forms\Concerns\InteractsWithForms;
@@ -131,8 +130,8 @@ class GeneralSettings extends Page implements HasForms
 
                 $file =
                     $value instanceof TemporaryUploadedFile
-                        ? $value
-                        : collect($value)->first();
+                    ? $value
+                    : collect($value)->first();
 
                 if (!($file instanceof TemporaryUploadedFile)) {
                     return;

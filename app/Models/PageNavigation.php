@@ -5,6 +5,29 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
+/**
+ * @property int $id
+ * @property string $label
+ * @property int|null $position
+ * @property string $type
+ * @property array<array-key, mixed>|null $data
+ * @property \Carbon\CarbonImmutable|null $created_at
+ * @property \Carbon\CarbonImmutable|null $updated_at
+ * @property-read array $dropdown_items
+ * @property-read string|null $resolved_url
+ * @property-read \App\Models\Page|null $page_navigation
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|PageNavigation newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|PageNavigation newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|PageNavigation query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|PageNavigation whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|PageNavigation whereData($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|PageNavigation whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|PageNavigation whereLabel($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|PageNavigation wherePosition($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|PageNavigation whereType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|PageNavigation whereUpdatedAt($value)
+ * @mixin \Eloquent
+ */
 class PageNavigation extends Model
 {
     protected $guarded = [];
