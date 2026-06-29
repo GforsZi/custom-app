@@ -21,6 +21,10 @@ This file provides high-signal context for OpenCode sessions to improve develope
 ## Key Architecture
 - **Tech Stack:** Laravel 13, Vue 3, Inertia.js, Filament, Tailwind CSS, TypeScript.
 - **Helpers:** Global helper functions are defined in `app/Helpers/App.php`.
-- **Filament Resources:** Custom schemas are located in `app/Filament/Resources/{Resource}/Schemas/`.
+- **Filament Resources:** 
+  - Custom schemas are located in `app/Filament/Resources/{Resource}/Schemas/`.
+  - The system supports dynamic page creation via Filament Builder. Admin users can manage content blocks, add dynamic pages, and configure custom SEO settings.
+  - Core configuration is handled in `app/Filament/Pages/GeneralSettings.php`.
 - **Package Management:** Composer for PHP, NPM for frontend.
 - **Permissions:** Spatie `laravel-permission` is used. When managing roles in Filament forms, use `->relationship('roles', 'name')` with `multiple()` to avoid "unknown column" errors.
+- **Extensibility:** The frontend is designed to support custom components; developers can extend the UI by adding new components to the codebase without violating the core architectural patterns.
