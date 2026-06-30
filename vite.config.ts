@@ -5,6 +5,7 @@ import vue from '@vitejs/plugin-vue';
 import laravel from 'laravel-vite-plugin';
 import { bunny } from 'laravel-vite-plugin/fonts';
 import { defineConfig } from 'vite';
+import path from 'path'
 
 export default defineConfig({
     plugins: [
@@ -14,6 +15,7 @@ export default defineConfig({
                 'resources/js/app.ts',
                 'resources/css/filament/admin/theme.css',
             ],
+            ssr: 'resources/js/ssr.ts',
             refresh: true,
             fonts: [
                 bunny('Instrument Sans', {
@@ -35,4 +37,9 @@ export default defineConfig({
             formVariants: true,
         }),
     ],
+    resolve: {
+        alias: {
+            '@': path.resolve(__dirname, 'resources/js')
+        }
+    }
 });
