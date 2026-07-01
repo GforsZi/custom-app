@@ -8,6 +8,7 @@ import Aura from '@primeuix/themes/aura'
 import Lara from '@primeuix/themes/lara'
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
+const colorScheme: string = "amber";
 
 function applyStoredTheme(): void {
     const theme = localStorage.getItem('theme')
@@ -32,17 +33,17 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e)
 const MyPreset = definePreset(Aura, {
     semantic: {
         primary: {
-            50: '{amber.50}',
-            100: '{amber.100}',
-            200: '{amber.200}',
-            300: '{amber.300}',
-            400: '{amber.400}',
-            500: '{amber.500}',
-            600: '{amber.600}',
-            700: '{amber.700}',
-            800: '{amber.800}',
-            900: '{amber.900}',
-            950: '{amber.950}',
+            50: `{${colorScheme}.50}`,
+            100: `{${colorScheme}.100}`,
+            200: `{${colorScheme}.200}`,
+            300: `{${colorScheme}.300}`,
+            400: `{${colorScheme}.400}`,
+            500: `{${colorScheme}.500}`,
+            600: `{${colorScheme}.600}`,
+            700: `{${colorScheme}.700}`,
+            800: `{${colorScheme}.800}`,
+            900: `{${colorScheme}.900}`,
+            950: `{${colorScheme}.950}`,
         },
     },
 })
