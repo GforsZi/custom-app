@@ -17,7 +17,7 @@ import Button from 'primevue/button';
                 </div>
             </div>
             <div class="relative order-1 lg:order-none mb-20 lg:mt-0 lg:mb-0 lg:-mr-10">
-                <img class="z-10 w-full" src="/image/illustration-hero.svg" />
+                <img class="z-10 w-full" src="/images/illustration-hero.svg" />
                 <div
                     class="-z-10 bg-primary h-52 w-full sm:h-80 sm:w-full rounded-l-full absolute -right-28 md:-right-48 -bottom-8">
                 </div>
